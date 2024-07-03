@@ -2,6 +2,9 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 from PIL import Image
+from pydantic import BaseModel, Field, PrivateAttr
+from pydantic_settings import BaseSettings
+
 
 ## Configuracoes da pagina
 st.set_page_config(
@@ -15,15 +18,14 @@ st.set_page_config(
 with st.sidebar:
     logoHeader = Image.open("img/image4.png")
     st.image(logoHeader, use_column_width=True)
-    st.header('ML `version 1.0`')
+    st.header('ML `version 1.1`')
 
-    # 'EDA' - bar-chart-steps'
     selected = option_menu(
         #https://icons.getbootstrap.com/
         menu_icon="cast",
         menu_title="Main Menu",
-        options=['Home', 'Upload', 'Machine Learning'],
-        icons=['house-check-fill', 'cloud-arrow-up-fill', 'robot' ],
+        options=['Home', 'Upload', 'EDA', 'Machine Learning'],
+        icons=['house-check-fill', 'cloud-arrow-up-fill', 'bar-chart-steps', 'robot'],
         default_index=0,
         orientation="vertical",
     )
